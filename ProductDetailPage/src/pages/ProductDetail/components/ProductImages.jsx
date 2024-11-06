@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { useProductDetailsContext } from "./ProductDetailsContext"
 import { getSelectedColorImages } from "../utils";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 
 
 const ProductImages = () => {
@@ -16,7 +16,7 @@ const ProductImages = () => {
     return(
         <div className="flex flex-col gap-6">
             <img 
-                src={product.images[selectedImage].image_url}
+                src={images[selectedImage].image_url}
                 className="h-[400px] w-full rounded-lg object-cover md:h-[800px]"
                 alt="First image"
                 loading="lazy">    
@@ -35,6 +35,7 @@ const ProductImages = () => {
                         index === selectedImage && 'border-[3px] border-indigo-600',
                     )}
                     loading="lazy"
+                    onClick={()=>setSelectedImage(index)}
                     >
                 </img>
             ))}

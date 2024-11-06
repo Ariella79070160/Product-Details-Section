@@ -10,3 +10,11 @@ export const COLORS = {
     beige: { value: '#d2b08a', label: 'Beige' },
     pink: { value: '#EC4899', label: 'Pink' },
 };
+
+export const SIZE_MAP = {
+    xs: 'XS',
+    sm: 'S',
+    md: 'M',
+    lg: 'L',
+    xl: 'XL',
+};

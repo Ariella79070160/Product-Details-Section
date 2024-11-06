@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect,useCallback, useMemo } from "react";
 import { useNavigate } from 'react-router-dom';
+import { getUnavailableSizes, getUnavailableColors } from "../utils";
 
 const ProductDetailsContext = createContext()
 
@@ -20,12 +21,24 @@ const ProductDetailsContextProvider = ({ children }) => {
 
         if(!data.error){
             setProduct(data)
-            setSelectedColor(data.colors[0])     
+            setSelectedColor(data.colors[0])    
         }else{
             navigate('/not-found')
         }
         setIsProductLoading(false)
     },[navigate])
+
+    useEffect(() => {
+        if(!product || !selectedColor){
+            return
+        }
+        const unavSizes = getUnavailableSizes({ product, color: selectedColor})
+        const avSizes = [...product.sizes].filter(size => !unavSizes.includes(size))
+        if(avSizes.length > 0){
+            setSelectedSize(avSizes[0])
+        }
+    }, [product, selectedColor])
+
 
     useEffect(() => {
         fetchProducts()
