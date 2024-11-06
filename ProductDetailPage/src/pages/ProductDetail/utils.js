@@ -15,7 +15,6 @@ export const getSpecificInventoryData = ({ product, color, size}) => {
 
 export const getUnavailableColors = ({ product }) => {
     const availableColor = new Set()
-    console.log('product', product)
     const allColor = new Set(product.colors)
 
     product.inventory.forEach((inve) => {

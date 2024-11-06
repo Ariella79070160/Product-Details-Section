@@ -44,6 +44,13 @@ const ProductDetailsContextProvider = ({ children }) => {
         fetchProducts()
     }, [fetchProducts])
 
+    const increaseQuant = useCallback(() => {
+        setQuantity(prev => (prev + 1))
+    }, [])
+    const decreaseQuant = useCallback(() => {
+        setQuantity(prev => (prev > 1 ? prev - 1 : 1))
+    }, [])
+
 
     const value = useMemo(() => {
         return{
@@ -56,7 +63,8 @@ const ProductDetailsContextProvider = ({ children }) => {
             setSelectedSize,
             quantity,
             setQuantity,
-
+            increaseQuant,
+            decreaseQuant
         }
     }, [
         product,

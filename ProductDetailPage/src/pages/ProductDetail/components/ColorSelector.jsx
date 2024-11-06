@@ -12,8 +12,8 @@ const ColorSelector = () => {
 
     return (
         <fieldset className="all-colors">
-            <legend>Available Colors</legend>
-            <div>
+            <legend className="text-sm text-neutral-500">Available Colors</legend>
+            <div className="mt-4 flex flex-wrap gap-4">
                 {pdColors.map((color) => (
                     <ColorOption 
                         key={color}

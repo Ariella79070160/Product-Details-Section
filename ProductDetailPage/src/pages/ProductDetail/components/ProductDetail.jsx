@@ -16,7 +16,7 @@ const ProductDetail = () => {
                 <ProductImages />
             </div>
 
-            <div>
+            <div className="col-span-4 md:col-span-6">
                 <ProductMetaData />
             </div>
         </>

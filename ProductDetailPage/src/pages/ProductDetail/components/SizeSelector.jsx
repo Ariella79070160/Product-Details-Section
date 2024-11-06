@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useProductDetailsContext } from './ProductDetailsContext';
 import { SIZE_MAP } from '../../../constant';
 import { useMemo } from 'react';
@@ -15,8 +16,8 @@ const SizeSelector = () => {
 
     return (
         <fieldset className="size-selector">
-            <legend>Available Sizes</legend>
-            <div className="size-options">
+            <legend className="text-sm text-neutral-500">Available Sizes</legend>
+            <div className={clsx('mt-4', 'flex flex-wrap gap-4')}>
                 {pdSizes.map((size) => (
                     <SizeOption 
                         key={size}
