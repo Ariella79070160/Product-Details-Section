@@ -6,8 +6,8 @@ const ProductQuantity = ({avaStock}) => {
     const {quantity, increaseQuant, decreaseQuant} = useProductDetailsContext()
 
     return(
-        <div>
-            <legend>Quantity</legend>
+        <div className="flex flex-col gap-4 self-stretch pb-5">
+            <legend className="font-normal text-sm text-neutral-500">Quantity</legend>
             <div>
                 <ChangeQuantity 
                     quantity={quantity}

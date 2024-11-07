@@ -12,12 +12,16 @@ const ColorOption = ({ color, selectedColor, onClick, outofStock}) => {
             )}>
             <input
                 type="radio"
+                name="color-choice"
                 value={color}
-                onChange={onClick}
+                checked={selectedColor === color}
+                aria-checked={selectedColor === color}
+                onChange={() => onClick(color)}
                 disabled={outofStock}
-                checked={color === selectedColor}
+                style={{
+                    display: 'none', 
+                }}
             />
-
             <div
                 aria-hidden="true"
                 className={clsx(
@@ -29,21 +33,20 @@ const ColorOption = ({ color, selectedColor, onClick, outofStock}) => {
                         'hover:border-2 hover:border-indigo-200',
                         'focus:border-none focus:outline-none focus:ring-[9.33px] focus:ring-indigo-600/[.12]',
                     ],
-                    )}
-                style={{ backgroundColor: color }}
-            >
+                )}
+                style={{ backgroundColor: color }}>
                 {selectedColor === color && !outofStock && (
-                    <svg
-                        width="28"
-                        height="28"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M11.6673 17.6993L22.3918 6.97485L24.0417 8.62477L11.6673 20.9991L4.24268 13.5745L5.89259 11.9246L11.6673 17.6993Z"
-                            fill="white"
-                        />
-                    </svg>
+                <svg
+                    width="28"
+                    height="28"
+                    viewBox="0 0 28 28"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                    d="M11.6673 17.6993L22.3918 6.97485L24.0417 8.62477L11.6673 20.9991L4.24268 13.5745L5.89259 11.9246L11.6673 17.6993Z"
+                    fill="white"
+                    />
+                </svg>
                 )}
 
                 {outofStock && (
@@ -54,12 +57,12 @@ const ColorOption = ({ color, selectedColor, onClick, outofStock}) => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <rect
-                        x="32.3999"
-                        y="0.199951"
-                        width="2.1"
-                        height="44.8"
-                        transform="rotate(45 32.3999 0.199951)"
-                        fill="#525252"
+                    x="32.3999"
+                    y="0.199951"
+                    width="2.1"
+                    height="44.8"
+                    transform="rotate(45 32.3999 0.199951)"
+                    fill="#525252"
                     />
                 </svg>
                 )}

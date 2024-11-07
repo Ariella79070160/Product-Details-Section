@@ -9,7 +9,7 @@ const Ratings = ({value, max = 5, onChange}) => {
     const readOnly = !onChange
 
     return(
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 pr-2">
             {Array.from({ length: max }).map((_, index) => (
                 <span
                     key={index}
